@@ -237,6 +237,13 @@ else if (domain = matchDomain(it_gedi_domains)) {
         if (paywall) {
           setCookie(/blaize_session/, '', domain, '/', 0);
           refreshCurrentTab();
+          remove_cookies_select_drop: ["blaize_session"];
+          block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|user-notification)-.+\.js)/;
+          useragent: "googlebot";
+          exception: [{
+        domain: ["huffingtonpost.it", "lastampa.it", "repubblica.it";
+        block_js_inline: /\.it\/.+\/news\//;
+        remove_cookies_select_drop: ["blaize_session";
         }
         let modal = document.querySelector('aside#widgetDP');
         removeDOMElement(modal);
